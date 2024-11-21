@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компліменти для Софії</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Софія, ти найкраща!</h1>
+        <div class="slides">
+            <div class="slide active">
+                <p>Твоя посмішка освітлює мій день ☀️</p>
+            </div>
+            <div class="slide">
+                <p>Ти неймовірно красива 🌸</p>
+            </div>
+            <div class="slide">
+                <p>Твоя доброта робить світ кращим 💖</p>
+            </div>
+            <div class="slide">
+                <p>З тобою кожен момент особливий ✨</p>
+            </div>
+            <div class="slide">
+                <p>Я люблю тебе більше з кожним днем ❤️</p>
+            </div>
+        </div>
+        <button class="prev" onclick="showPrevSlide()">&#10094; Назад</button>
+        <button class="next" onclick="showNextSlide()">Вперед &#10095;</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function showNextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function showPrevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
